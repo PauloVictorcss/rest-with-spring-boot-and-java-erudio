@@ -1,13 +1,14 @@
 package br.com.erudio.data.vo.v1;
 
-
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
 
 @EqualsAndHashCode(of = "id")
+@JsonPropertyOrder({"id", "first_name", "lastName", "gender", "address"}) //serve para definir a ordem em que os atributos vão ser serializados
 public class PersonVO implements Serializable {
 
     private Long id;
