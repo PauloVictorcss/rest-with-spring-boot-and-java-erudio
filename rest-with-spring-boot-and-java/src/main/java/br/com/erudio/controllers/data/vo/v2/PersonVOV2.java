@@ -1,28 +1,19 @@
-package br.com.erudio.model;
-import java.io.Serializable;
-import java.util.Objects;
-import jakarta.persistence.*;
+package br.com.erudio.controllers.data.vo.v2;
+
 import lombok.EqualsAndHashCode;
 
+import java.io.Serializable;
+import java.util.Date;
+
 @EqualsAndHashCode(of = "id")
-@Entity
-@Table(name = "person")
-public class Person implements Serializable {
+public class PersonVOV2 implements Serializable {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(name = "first_name", length = 80)
     private String firstName;
-
-    @Column(name = "last_name", length = 80)
     private String lastName;
-
-    @Column(length = 100)
     private String address;
-
-    @Column(length = 6)
     private String gender;
+    private Date birthDay;
 
 
     public long getId() {
@@ -65,4 +56,11 @@ public class Person implements Serializable {
         this.gender = gender;
     }
 
+    public Date getBirthDay() {
+        return birthDay;
+    }
+
+    public void setBirthDay(Date birthDay) {
+        this.birthDay = birthDay;
+    }
 }
