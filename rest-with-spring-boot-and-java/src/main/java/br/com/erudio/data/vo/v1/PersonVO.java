@@ -1,28 +1,33 @@
 package br.com.erudio.data.vo.v1;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.github.dozermapper.core.Mapping;
 import lombok.EqualsAndHashCode;
+import org.springframework.hateoas.RepresentationModel;
 
 import java.io.Serializable;
 
 @EqualsAndHashCode(of = "id")
-@JsonPropertyOrder({"id", "first_name", "lastName", "gender", "address"}) //serve para definir a ordem em que os atributos vão ser serializados
-public class PersonVO implements Serializable {
+@JsonPropertyOrder({"id", "firstName", "lastName", "gender", "address"}) //serve para definir a ordem em// que os atributos vão ser serializados
 
-    private Long id;
+//RepresentationModel<> is needed to implement HATEOAS
+public class PersonVO extends RepresentationModel<PersonVO> implements Serializable {
+
+    @JsonProperty("id")
+    @Mapping("id") //Annotation from dozermapper to link key as an id to convertera
+    private Long key;
     private String firstName;
     private String lastName;
     private String address;
     private String gender;
 
-    public long getId() {
-        return id;
+    public Long getKey() {
+        return key;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setKey(Long key) {
+        this.key = key;
     }
 
     public String getFirstName() {

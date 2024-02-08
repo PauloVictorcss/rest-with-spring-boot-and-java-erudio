@@ -9,10 +9,10 @@ public class ExceptionResponse implements Serializable {
     private String message;
     private String details;
 
-    public ExceptionResponse(Date timestamp, String message, String detais){
+    public ExceptionResponse(Date timestamp, String message, String details){
         this.timestamp = timestamp;
         this.message = message;
-        this.details = detais;
+        this.details = details;
     }
 
     public Date getTimestamp() {

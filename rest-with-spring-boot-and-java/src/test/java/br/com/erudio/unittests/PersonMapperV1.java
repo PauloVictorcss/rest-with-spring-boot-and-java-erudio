@@ -1,4 +1,4 @@
-package br.com.erudio.mapper;
+package br.com.erudio.unittests;
 
 import br.com.erudio.data.vo.v1.PersonVO;
 import br.com.erudio.model.Person;

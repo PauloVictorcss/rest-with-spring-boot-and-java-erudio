@@ -1,14 +1,17 @@
 package br.com.erudio.controllers.data.vo.v2;
 
+import com.github.dozermapper.core.Mapping;
 import lombok.EqualsAndHashCode;
+import org.springframework.hateoas.RepresentationModel;
 
 import java.io.Serializable;
 import java.util.Date;
 
 @EqualsAndHashCode(of = "id")
-public class PersonVOV2 implements Serializable {
+public class PersonVOV2 extends RepresentationModel<PersonVOV2> implements Serializable {
 
-    private Long id;
+    @Mapping("id")
+    private Long key;
     private String firstName;
     private String lastName;
     private String address;
@@ -16,12 +19,12 @@ public class PersonVOV2 implements Serializable {
     private Date birthDay;
 
 
-    public long getId() {
-        return id;
+    public Long getKey() {
+        return key;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setKey(Long key) {
+        this.key = key;
     }
 
     public String getFirstName() {

@@ -1,6 +1,5 @@
 package br.com.erudio.model;
 import java.io.Serializable;
-import java.util.Objects;
 import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
 
